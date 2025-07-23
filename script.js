@@ -1,5 +1,5 @@
 
-// カテゴリ表示順序: ティーバッグ → 煎茶 → くき茶 → 真砂 → 粉茶・芽茶 → 玄米茶・ほうじ茶 → ドリップティー → お菓子
+// カテゴリ表示順序: ティーバッグ → 煎茶 → くき茶 → 真砂 → 粉茶・芽茶 → 玄米茶・ほうじ茶 → ドリップティー → お菓子 → その他
 // 初期商品データの定義（カテゴリ順序反映）
 const defaultProducts = [
   {
@@ -486,6 +486,54 @@ const defaultProducts = [
     "name": "和風ビスケット",
     "price": 108,
     "category": "お菓子",
+    "isDiscounted": false,
+    "discountRate": 0
+  },
+  {
+    "id": 72,
+    "name": "箱代660円",
+    "price": 660,
+    "category": "その他",
+    "isDiscounted": false,
+    "discountRate": 0
+  },
+  {
+    "id": 73,
+    "name": "箱代165円",
+    "price": 165,
+    "category": "その他",
+    "isDiscounted": false,
+    "discountRate": 0
+  },
+  {
+    "id": 74,
+    "name": "箱代220円",
+    "price": 220,
+    "category": "その他",
+    "isDiscounted": false,
+    "discountRate": 0
+  },
+  {
+    "id": 75,
+    "name": "箱代330円",
+    "price": 330,
+    "category": "その他",
+    "isDiscounted": false,
+    "discountRate": 0
+  },
+  {
+    "id": 76,
+    "name": "夏の香",
+    "price": 324,
+    "category": "その他",
+    "isDiscounted": false,
+    "discountRate": 0
+  },
+  {
+    "id": 77,
+    "name": "アルファー麦茶",
+    "price": 540,
+    "category": "その他",
     "isDiscounted": false,
     "discountRate": 0
   }
