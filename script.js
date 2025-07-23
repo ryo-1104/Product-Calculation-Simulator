@@ -180,6 +180,14 @@ const defaultProducts = [
     "isDiscounted": false
   },
   {
+    "id": 70,
+    "name": "掛川茶330",
+    "price": 1080,
+    "category": "煎茶",
+    "isDiscounted": false,
+    "discountRate": 0
+  },
+  {
     "id": 34,
     "name": "かりがね限定品",
     "price": 1080,
@@ -469,6 +477,14 @@ const defaultProducts = [
     "id": 65,
     "name": "磯の木昆布",
     "price": 432,
+    "category": "お菓子",
+    "isDiscounted": false,
+    "discountRate": 0
+  },
+  {
+    "id": 71,
+    "name": "和風ビスケット",
+    "price": 108,
     "category": "お菓子",
     "isDiscounted": false,
     "discountRate": 0
