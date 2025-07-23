@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品購入シミュレーション</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>商品購入シミュレーション</h1>
+        <button id="mode-toggle-button" class="mode-toggle-btn">編集モードに切替</button>
+    </header>
+
+    <main>
+        <!-- 表示モード -->
+        <div id="display-mode" class="mode-content">
+            <div class="display-layout">
+                <div id="product-list" class="product-list">
+                    <!-- 商品リストが動的に生成される -->
+                </div>
+                <div class="sidebar">
+                    <div id="total-amount" class="total-amount">
+                        <h3>合計金額: <span id="total-price">¥0</span></h3>
+                    </div>
+                    <div id="shipping-options" class="shipping-options">
+                        <h3>配送オプション</h3>
+                        <div class="shipping-section">
+                            <div class="shipping-group">
+                                <label for="shipping-fee">送料:</label>
+                                <select id="shipping-fee" class="shipping-select">
+                                    <option value="0">無料</option>
+                                    <option value="660">¥660</option>
+                                    <option value="880">¥880</option>
+                                    <option value="1000">¥1,000</option>
+                                </select>
+                            </div>
+                            <div class="shipping-group">
+                                <label for="cash-on-delivery">代引:</label>
+                                <select id="cash-on-delivery" class="shipping-select">
+                                    <option value="0">なし</option>
+                                    <option value="1">あり</option>
+                                </select>
+                            </div>
+                            <div class="cod-fee-info" id="cod-fee-info">
+                                代引き料金は合計金額により変動
+                            </div>
+                            <div class="shipping-group">
+                                <label for="cool-delivery">クール便:</label>
+                                <select id="cool-delivery" class="shipping-select">
+                                    <option value="0">なし</option>
+                                    <option value="330">あり (+¥330)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="shipping-total">
+                            <strong>配送料合計: <span id="shipping-total">¥0</span></strong>
+                        </div>
+                    </div>
+                    <div id="final-total" class="final-total">
+                        <h2>総合計: <span id="final-total-price">¥0</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 編集モード -->
+        <div id="edit-mode" class="mode-content hidden">
+            <div class="edit-section">
+                <div class="edit-header">
+                    <h2>商品管理</h2>
+                    <button id="help-button" class="help-button" title="使い方ヘルプ">
+                        <span class="help-icon">？</span>
+                        ヘルプ
+                    </button>
+                </div>
+                
+                <!-- ヘルプパネル -->
+                <div id="help-panel" class="help-panel hidden">
+                    <div class="help-content">
+                        <h3>📋 編集モード使い方ガイド</h3>
+                        
+                        <div class="help-section">
+                            <h4>🛍️ 商品管理</h4>
+                            <ul>
+                                <li><strong>新規追加</strong>: フォームに商品情報を入力して「保存」をクリック</li>
+                                <li><strong>商品編集</strong>: 商品一覧の「編集」ボタンをクリック</li>
+                                <li><strong>商品削除</strong>: 商品一覧の「削除」ボタンをクリック</li>
+                                <li><strong>割引設定</strong>: 割引対象チェックで10%、15%、20%から選択可能</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="help-section">
+                            <h4>📁 カテゴリ管理</h4>
+                            <ul>
+                                <li><strong>新規カテゴリ</strong>: 商品追加時に新しいカテゴリ名を入力</li>
+                                <li><strong>既存カテゴリ</strong>: ドロップダウンから選択</li>
+                                <li><strong>カテゴリ順序変更</strong>: ドラッグ&ドロップで並び替え</li>
+                                <li><strong>先頭カテゴリ</strong>: 一番上のカテゴリが自動で開いた状態で表示</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="help-section">
+                            <h4>💾 データ管理・エクスポート手順</h4>
+                            <ol class="help-steps">
+                                <li>商品やカテゴリの編集を完了させる</li>
+                                <li>「<strong>カテゴリ順序でエクスポート</strong>」ボタンをクリック</li>
+                                <li>生成されたJavaScriptコードを確認</li>
+                                <li>「<strong>クリップボードにコピー</strong>」ボタンをクリック</li>
+                                <li><code>script.js</code>ファイルを開く</li>
+                                <li><code>defaultProducts</code>の部分を新しいコードで置き換え</li>
+                                <li>ファイルを保存して完了</li>
+                            </ol>
+                            <div class="help-note">
+                                <strong>💡 ポイント:</strong> エクスポートすることで、設定したカテゴリ順序と商品データがscript.jsファイルに永続化されます。
+                            </div>
+                        </div>
+                        
+                        <div class="help-section">
+                            <h4>🔄 その他の機能</h4>
+                            <ul>
+                                <li><strong>データインポート</strong>: JSONやJavaScriptコードから商品データを読み込み</li>
+                                <li><strong>初期データにリセット</strong>: すべてのデータを初期状態に戻す</li>
+                                <li><strong>ローカル保存</strong>: 変更内容は自動でブラウザに保存されます</li>
+                            </ul>
+                        </div>
+                        
+                        <button id="close-help" class="close-help-btn">✕ 閉じる</button>
+                    </div>
+                </div>
+                
+                <!-- 商品追加・編集フォーム -->
+                <form id="product-form" class="product-form">
+                    <h3 id="form-title">商品追加</h3>
+                    <div class="form-group">
+                        <label for="product-name">商品名:</label>
+                        <input type="text" id="product-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price">金額:</label>
+                        <input type="number" id="product-price" name="price" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-category">カテゴリ:</label>
+                        <select id="category-select" name="categorySelect">
+                            <option value="">-- 既存カテゴリから選択 --</option>
+                        </select>
+                        <input type="text" id="product-category" name="category" placeholder="または新しいカテゴリを入力">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="product-discount" name="isDiscounted">
+                            割引対象
+                        </label>
+                    </div>
+                    <div class="form-group discount-rate-group" id="discount-rate-group" style="display: none;">
+                        <label for="discount-rate">割引率:</label>
+                        <select id="discount-rate" name="discountRate">
+                            <option value="10">10%</option>
+                            <option value="15">15%</option>
+                            <option value="20" selected>20%</option>
+                        </select>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" id="save-btn">保存</button>
+                        <button type="button" id="cancel-btn" class="hidden">キャンセル</button>
+                    </div>
+                </form>
+
+                <!-- 商品リスト（編集用） -->
+                <div class="edit-products">
+                    <h3>商品一覧</h3>
+                    <div id="edit-product-list" class="edit-product-list">
+                        <!-- 編集用商品リストが動的に生成される -->
+                    </div>
+                </div>
+
+                <!-- カテゴリ順序管理 -->
+                <div class="category-management">
+                    <h3>カテゴリ表示順序</h3>
+                    <div class="category-order-info">
+                        <p>ドラッグ&ドロップでカテゴリの表示順序を変更できます。一番上のカテゴリは自動的に開いた状態で表示されます。</p>
+                    </div>
+                    <div id="category-order-list" class="category-order-list">
+                        <!-- カテゴリ順序リストが動的に生成される -->
+                    </div>
+                </div>
+
+                <!-- データ管理セクション -->
+                <div class="data-management">
+                    <h3>データ管理</h3>
+                    <div class="data-management-buttons">
+                        <button type="button" id="export-ordered-btn" class="export-btn">カテゴリ順序でエクスポート</button>
+                        <button type="button" id="import-data-btn" class="import-btn">初期データをインポート</button>
+                        <button type="button" id="reset-data-btn" class="reset-btn">初期データにリセット</button>
+                    </div>
+                    <div id="data-editor" class="data-editor hidden">
+                        <h4>初期データ編集</h4>
+                        <textarea id="data-textarea" placeholder="初期データのJSONを入力してください..."></textarea>
+                        <div class="data-editor-buttons">
+                            <button type="button" id="save-data-btn" class="save-data-btn">保存してscript.jsに適用</button>
+                            <button type="button" id="cancel-data-btn" class="cancel-data-btn">キャンセル</button>
+                        </div>
+                    </div>
+                    <div id="export-output" class="export-output hidden">
+                        <h4>エクスポートされた初期データ</h4>
+                        <textarea id="export-textarea" readonly></textarea>
+                        <div class="export-buttons">
+                            <button type="button" id="copy-data-btn" class="copy-btn">クリップボードにコピー</button>
+                            <button type="button" id="close-export-btn" class="close-btn">閉じる</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
