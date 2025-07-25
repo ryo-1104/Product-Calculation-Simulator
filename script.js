@@ -5,7 +5,7 @@ const defaultProducts = [
   {
     "id": 8,
     "name": "茶草場のしずく",
-    "price": 864,
+    "price": 648,
     "category": "ティーバッグ",
     "isDiscounted": true,
     "discountRate": 20
