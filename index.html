@@ -23,6 +23,32 @@
                     <div id="total-amount" class="total-amount">
                         <h3>合計金額: <span id="total-price">¥0</span></h3>
                     </div>
+                    <div id="customer-info" class="customer-info">
+                        <h3>お客様情報</h3>
+                        <div class="customer-section">
+                            <div class="customer-group">
+                                <label for="customer-number">No:</label>
+                                <input type="text" id="customer-number" class="customer-input" placeholder="お客様NOを入力">
+                            </div>
+                            <div class="customer-group">
+                                <label for="customer-name">名前:</label>
+                                <input type="text" id="customer-name" class="customer-input" placeholder="お名前を入力">
+                            </div>
+                            <div class="customer-group">
+                                <label for="customer-remarks">備考欄:</label>
+                                <textarea id="customer-remarks" class="customer-textarea" rows="2" placeholder="備考を入力"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="invoice-date-setting" class="invoice-date-setting">
+                        <h3>発行日設定</h3>
+                        <div class="date-section">
+                            <div class="date-group">
+                                <label for="invoice-issue-date">発行日:</label>
+                                <input type="date" id="invoice-issue-date" class="date-input">
+                            </div>
+                        </div>
+                    </div>
                     <div id="shipping-options" class="shipping-options">
                         <h3>配送オプション</h3>
                         <div class="shipping-section">
@@ -60,6 +86,172 @@
                     <div id="final-total" class="final-total">
                         <h2>総合計: <span id="final-total-price">¥0</span></h2>
                     </div>
+                    <div class="print-button-container">
+                        <button id="print-invoice-btn" class="print-invoice-btn">📄 納品書を印刷</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 納品書テンプレート（非表示） -->
+        <div id="invoice-template" class="invoice-template hidden">
+            <div class="invoice-page">
+                <!-- 納品書（上部） -->
+                <div class="invoice-section">
+                    <div class="invoice-header">
+                        <h2>納品書</h2>
+                        <div class="invoice-company-info-header">
+                            <div class="company-row">
+                                <div class="company-name-full">わたなべの茶本舗　三重大製茶株式会社</div>
+                            </div>
+                            <div class="company-row">
+                                <div class="company-address">〒436-0009　静岡県掛川市大野707-1</div>
+                                <div class="company-phone">TEL: 0537-27-1104</div>
+                            </div>
+                        </div>
+                        <div class="invoice-date">発行日: <span id="invoice-date-1"></span></div>
+                    </div>
+                    <div class="invoice-content">
+                        <table class="invoice-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-name">商品名</th>
+                                    <th class="col-price">単価</th>
+                                    <th class="col-qty">数量</th>
+                                    <th class="col-total">合計金額</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoice-items-1">
+                                <!-- 商品行が動的に追加される -->
+                            </tbody>
+                        </table>
+                        <div class="invoice-bottom-section">
+                            <div class="invoice-customer-info">
+                                <div class="customer-info-row">
+                                    <span class="customer-label">No:</span>
+                                    <span class="customer-value" id="invoice-customer-number-1"></span>
+                                </div>
+                                <div class="customer-info-row">
+                                    <span class="customer-label">名前:</span>
+                                    <span class="customer-value" id="invoice-customer-name-1"></span>
+                                </div>
+                                <div class="customer-info-row">
+                                    <span class="customer-label">備考:</span>
+                                    <span class="customer-value" id="invoice-customer-remarks-1"></span>
+                                </div>
+                            </div>
+                            <div class="invoice-summary">
+                            <div class="summary-row">
+                                <span class="summary-label">小計（税抜）:</span>
+                                <span class="summary-value" id="invoice-subtotal-1">¥0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">消費税(8%・内税):</span>
+                                <span class="summary-value" id="invoice-tax8-1">¥0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">消費税(10%・内税):</span>
+                                <span class="summary-value" id="invoice-tax10-1">¥0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">送料:</span>
+                                <span class="summary-value" id="invoice-shipping-1">¥0</span>
+                            </div>
+                            <div class="summary-row" id="invoice-cod-row-1" style="display:none;">
+                                <span class="summary-label">代引手数料:</span>
+                                <span class="summary-value" id="invoice-cod-1">¥0</span>
+                            </div>
+                            <div class="summary-row" id="invoice-cool-row-1" style="display:none;">
+                                <span class="summary-label">クール便:</span>
+                                <span class="summary-value" id="invoice-cool-1">¥0</span>
+                            </div>
+                            <div class="summary-row total-row">
+                                <span class="summary-label">総合計:</span>
+                                <span class="summary-value" id="invoice-total-1">¥0</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="invoice-divider"></div>
+                
+                <!-- 納品書（控え）（下部） -->
+                <div class="invoice-section">
+                    <div class="invoice-header">
+                        <h2>納品書（控え）</h2>
+                        <div class="invoice-company-info-header">
+                            <div class="company-row">
+                                <div class="company-name-full">わたなべの茶本舗　三重大製茶株式会社</div>
+                            </div>
+                            <div class="company-row">
+                                <div class="company-address">〒436-0009　静岡県掛川市大野707-1</div>
+                                <div class="company-phone">TEL: 0537-27-1104</div>
+                            </div>
+                        </div>
+                        <div class="invoice-date">発行日: <span id="invoice-date-2"></span></div>
+                    </div>
+                    <div class="invoice-content">
+                        <table class="invoice-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-name">商品名</th>
+                                    <th class="col-price">単価</th>
+                                    <th class="col-qty">数量</th>
+                                    <th class="col-total">合計金額</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoice-items-2">
+                                <!-- 商品行が動的に追加される -->
+                            </tbody>
+                        </table>
+                        <div class="invoice-bottom-section">
+                            <div class="invoice-customer-info">
+                                <div class="customer-info-row">
+                                    <span class="customer-label">お客様NO:</span>
+                                    <span class="customer-value" id="invoice-customer-number-2"></span>
+                                </div>
+                                <div class="customer-info-row">
+                                    <span class="customer-label">名前:</span>
+                                    <span class="customer-value" id="invoice-customer-name-2"></span>
+                                </div>
+                                <div class="customer-info-row">
+                                    <span class="customer-label">備考:</span>
+                                    <span class="customer-value" id="invoice-customer-remarks-2"></span>
+                                </div>
+                            </div>
+                            <div class="invoice-summary">
+                            <div class="summary-row">
+                                <span class="summary-label">小計（税抜）:</span>
+                                <span class="summary-value" id="invoice-subtotal-2">¥0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">消費税(8%・内税):</span>
+                                <span class="summary-value" id="invoice-tax8-2">¥0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">消費税(10%・内税):</span>
+                                <span class="summary-value" id="invoice-tax10-2">¥0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">送料:</span>
+                                <span class="summary-value" id="invoice-shipping-2">¥0</span>
+                            </div>
+                            <div class="summary-row" id="invoice-cod-row-2" style="display:none;">
+                                <span class="summary-label">代引手数料:</span>
+                                <span class="summary-value" id="invoice-cod-2">¥0</span>
+                            </div>
+                            <div class="summary-row" id="invoice-cool-row-2" style="display:none;">
+                                <span class="summary-label">クール便:</span>
+                                <span class="summary-value" id="invoice-cool-2">¥0</span>
+                            </div>
+                            <div class="summary-row total-row">
+                                <span class="summary-label">総合計:</span>
+                                <span class="summary-value" id="invoice-total-2">¥0</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -86,6 +278,8 @@
                                 <li><strong>新規追加</strong>: フォームに商品情報を入力して「保存」をクリック</li>
                                 <li><strong>商品編集</strong>: 商品一覧の「編集」ボタンをクリック</li>
                                 <li><strong>商品削除</strong>: 商品一覧の「削除」ボタンをクリック</li>
+                                <li><strong>価格入力</strong>: 必ず<strong>税込価格</strong>で入力してください（納品書で内税計算されます）</li>
+                                <li><strong>税率設定</strong>: 8%（軽減税率：茶類など）または10%（標準税率：お菓子など）を選択</li>
                                 <li><strong>割引設定</strong>: 割引対象チェックで10%、15%、20%から選択可能</li>
                             </ul>
                         </div>
@@ -114,6 +308,18 @@
                             <div class="help-note">
                                 <strong>💡 ポイント:</strong> エクスポートすることで、設定したカテゴリ順序と商品データがscript.jsファイルに永続化されます。
                             </div>
+                        </div>
+                        
+                        <div class="help-section">
+                            <h4>🖨️ 納品書印刷</h4>
+                            <ul>
+                                <li><strong>表示モードで使用</strong>: 編集モードから表示モードに切り替えます</li>
+                                <li><strong>商品選択</strong>: 各商品の数量を選択（0より大きい数量）</li>
+                                <li><strong>オプション設定</strong>: 送料、代引き、クール便を設定</li>
+                                <li><strong>印刷実行</strong>: 「納品書を印刷」ボタンをクリック</li>
+                                <li><strong>内税表示</strong>: 納品書では税抜価格と税額が自動計算されます（8%/10%別）</li>
+                                <li><strong>A4サイズ</strong>: 納品書と控えが1枚に印刷されます</li>
+                            </ul>
                         </div>
                         
                         <div class="help-section">
@@ -159,6 +365,13 @@
                             <option value="10">10%</option>
                             <option value="15">15%</option>
                             <option value="20" selected>20%</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tax-rate">消費税率:</label>
+                        <select id="tax-rate" name="taxRate">
+                            <option value="8" selected>8%（軽減税率：お茶類等）</option>
+                            <option value="10">10%（標準税率：お菓子・箱代等）</option>
                         </select>
                     </div>
                     <div class="form-buttons">

@@ -1,183 +1,153 @@
-
-// カテゴリ表示順序: ティーバッグ → 煎茶 → くき茶 → 真砂 → 粉茶・芽茶 → 玄米茶・ほうじ茶 → ドリップティー → お菓子 → その他
+// カテゴリ表示順序: 煎茶 → くき茶 → 真砂 → 粉茶・芽茶 → 玄米茶・ほうじ茶 → ティーバッグ → ドリップティー → お菓子 → その他
 // 初期商品データの定義（カテゴリ順序反映）
 const defaultProducts = [
-  {
-    "id": 8,
-    "name": "茶草場のしずく",
-    "price": 648,
-    "category": "ティーバッグ",
-    "isDiscounted": true,
-    "discountRate": 20
-  },
-  {
-    "id": 9,
-    "name": "銘宝の月",
-    "price": 1280,
-    "category": "ティーバッグ",
-    "isDiscounted": true
-  },
-  {
-    "id": 10,
-    "name": "水出し煎茶ティーバッグ",
-    "price": 864,
-    "category": "ティーバッグ",
-    "isDiscounted": true
-  },
-  {
-    "id": 11,
-    "name": "抹茶入玄米茶ティーバッグ",
-    "price": 540,
-    "category": "ティーバッグ",
-    "isDiscounted": true
-  },
-  {
-    "id": 12,
-    "name": "粉茶ティーバッグ",
-    "price": 540,
-    "category": "ティーバッグ",
-    "isDiscounted": true
-  },
-  {
-    "id": 13,
-    "name": "和紅茶ティーバッグ",
-    "price": 540,
-    "category": "ティーバッグ",
-    "isDiscounted": true
-  },
-  {
-    "id": 14,
-    "name": "ほうじ茶ティーバッグ",
-    "price": 540,
-    "category": "ティーバッグ",
-    "isDiscounted": true
-  },
-  {
-    "id": 66,
-    "name": "お徳用ティーバッグ",
-    "price": 1296,
-    "category": "ティーバッグ",
-    "isDiscounted": false,
-    "discountRate": 0
-  },
   {
     "id": 17,
     "name": "希少品種こみなみ",
     "price": 2160,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 18,
     "name": "淡麓の極",
     "price": 2160,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 19,
     "name": "淡麓の匠",
     "price": 1620,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 20,
     "name": "掛川の誉",
     "price": 1080,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 21,
     "name": "掛川の香",
     "price": 864,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 22,
     "name": "掛川の里",
     "price": 648,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 23,
     "name": "かおり",
     "price": 540,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 24,
     "name": "かおり200g",
     "price": 1080,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "taxRate": 8
   },
   {
     "id": 25,
     "name": "桃山",
     "price": 648,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 26,
     "name": "初みどり",
     "price": 864,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 27,
     "name": "深蒸し掛川茶G",
     "price": 1080,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 28,
     "name": "深蒸し掛川茶W",
     "price": 864,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 29,
     "name": "天葉さえみどり",
     "price": 1080,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "taxRate": 8
   },
   {
     "id": 30,
     "name": "天葉つゆひかり",
     "price": 1080,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "taxRate": 8
   },
   {
     "id": 31,
     "name": "あら茶玄人作300g",
     "price": 1620,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 32,
     "name": "あさつゆ",
     "price": 1080,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "taxRate": 8
   },
   {
     "id": 33,
     "name": "ゆたかみどり",
     "price": 1080,
     "category": "煎茶",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "taxRate": 8
   },
   {
     "id": 70,
@@ -185,7 +155,8 @@ const defaultProducts = [
     "price": 1080,
     "category": "煎茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 34,
@@ -193,7 +164,8 @@ const defaultProducts = [
     "price": 1080,
     "category": "くき茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 35,
@@ -201,7 +173,8 @@ const defaultProducts = [
     "price": 2592,
     "category": "くき茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 36,
@@ -209,7 +182,8 @@ const defaultProducts = [
     "price": 1944,
     "category": "くき茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 37,
@@ -217,7 +191,8 @@ const defaultProducts = [
     "price": 1620,
     "category": "くき茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 38,
@@ -225,7 +200,8 @@ const defaultProducts = [
     "price": 1296,
     "category": "くき茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 39,
@@ -233,7 +209,8 @@ const defaultProducts = [
     "price": 972,
     "category": "くき茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 40,
@@ -241,7 +218,8 @@ const defaultProducts = [
     "price": 648,
     "category": "くき茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 41,
@@ -249,7 +227,8 @@ const defaultProducts = [
     "price": 1296,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 42,
@@ -257,7 +236,8 @@ const defaultProducts = [
     "price": 1080,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 43,
@@ -265,7 +245,8 @@ const defaultProducts = [
     "price": 4320,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 44,
@@ -273,7 +254,8 @@ const defaultProducts = [
     "price": 3780,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 45,
@@ -281,7 +263,8 @@ const defaultProducts = [
     "price": 3240,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 46,
@@ -289,7 +272,8 @@ const defaultProducts = [
     "price": 2700,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 47,
@@ -297,7 +281,8 @@ const defaultProducts = [
     "price": 2700,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 48,
@@ -305,7 +290,8 @@ const defaultProducts = [
     "price": 1080,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 49,
@@ -313,7 +299,8 @@ const defaultProducts = [
     "price": 1890,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 50,
@@ -321,7 +308,8 @@ const defaultProducts = [
     "price": 1080,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 51,
@@ -329,7 +317,8 @@ const defaultProducts = [
     "price": 1728,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 52,
@@ -337,7 +326,8 @@ const defaultProducts = [
     "price": 1188,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 53,
@@ -345,7 +335,8 @@ const defaultProducts = [
     "price": 1296,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 54,
@@ -353,7 +344,8 @@ const defaultProducts = [
     "price": 2160,
     "category": "真砂",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 55,
@@ -361,7 +353,8 @@ const defaultProducts = [
     "price": 1000,
     "category": "粉茶・芽茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 56,
@@ -369,7 +362,8 @@ const defaultProducts = [
     "price": 972,
     "category": "粉茶・芽茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 57,
@@ -377,7 +371,8 @@ const defaultProducts = [
     "price": 1080,
     "category": "粉茶・芽茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 58,
@@ -385,7 +380,8 @@ const defaultProducts = [
     "price": 1080,
     "category": "粉茶・芽茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 59,
@@ -393,7 +389,8 @@ const defaultProducts = [
     "price": 1080,
     "category": "粉茶・芽茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 60,
@@ -401,7 +398,8 @@ const defaultProducts = [
     "price": 864,
     "category": "粉茶・芽茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 61,
@@ -409,7 +407,17 @@ const defaultProducts = [
     "price": 648,
     "category": "粉茶・芽茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
+  },
+  {
+    "id": 78,
+    "name": "有機抹茶 千の雫",
+    "price": 1350,
+    "category": "粉茶・芽茶",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 67,
@@ -417,7 +425,8 @@ const defaultProducts = [
     "price": 648,
     "category": "玄米茶・ほうじ茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 68,
@@ -425,7 +434,8 @@ const defaultProducts = [
     "price": 1080,
     "category": "玄米茶・ほうじ茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 69,
@@ -433,37 +443,114 @@ const defaultProducts = [
     "price": 648,
     "category": "玄米茶・ほうじ茶",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
+  },
+  {
+    "id": 8,
+    "name": "茶草場のしずく",
+    "price": 648,
+    "category": "ティーバッグ",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
+  },
+  {
+    "id": 9,
+    "name": "銘宝の月",
+    "price": 1280,
+    "category": "ティーバッグ",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
+  },
+  {
+    "id": 10,
+    "name": "水出し煎茶ティーバッグ",
+    "price": 864,
+    "category": "ティーバッグ",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
+  },
+  {
+    "id": 11,
+    "name": "抹茶入玄米茶ティーバッグ",
+    "price": 540,
+    "category": "ティーバッグ",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
+  },
+  {
+    "id": 12,
+    "name": "粉茶ティーバッグ",
+    "price": 540,
+    "category": "ティーバッグ",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
+  },
+  {
+    "id": 13,
+    "name": "和紅茶ティーバッグ",
+    "price": 540,
+    "category": "ティーバッグ",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
+  },
+  {
+    "id": 14,
+    "name": "ほうじ茶ティーバッグ",
+    "price": 540,
+    "category": "ティーバッグ",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
+  },
+  {
+    "id": 66,
+    "name": "お徳用ティーバッグ",
+    "price": 1296,
+    "category": "ティーバッグ",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 15,
     "name": "Drip de Tea Ⅱ",
     "price": 1080,
     "category": "ドリップティー",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "taxRate": 8
   },
   {
     "id": 16,
     "name": "Drip de Tea",
     "price": 864,
     "category": "ドリップティー",
-    "isDiscounted": false
+    "isDiscounted": false,
+    "taxRate": 8
   },
   {
     "id": 62,
     "name": "どら焼き",
-    "price": 237,
+    "price": 248,
     "category": "お菓子",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
   },
   {
     "id": 63,
     "name": "フィナンシェ",
-    "price": 200,
+    "price": 220,
     "category": "お菓子",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
   },
   {
     "id": 64,
@@ -471,7 +558,8 @@ const defaultProducts = [
     "price": 378,
     "category": "お菓子",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
   },
   {
     "id": 65,
@@ -479,7 +567,8 @@ const defaultProducts = [
     "price": 432,
     "category": "お菓子",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
   },
   {
     "id": 71,
@@ -487,7 +576,8 @@ const defaultProducts = [
     "price": 108,
     "category": "お菓子",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
   },
   {
     "id": 72,
@@ -495,7 +585,8 @@ const defaultProducts = [
     "price": 660,
     "category": "その他",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
   },
   {
     "id": 73,
@@ -503,7 +594,8 @@ const defaultProducts = [
     "price": 165,
     "category": "その他",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
   },
   {
     "id": 74,
@@ -511,7 +603,8 @@ const defaultProducts = [
     "price": 220,
     "category": "その他",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
   },
   {
     "id": 75,
@@ -519,7 +612,8 @@ const defaultProducts = [
     "price": 330,
     "category": "その他",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
   },
   {
     "id": 76,
@@ -527,7 +621,8 @@ const defaultProducts = [
     "price": 324,
     "category": "その他",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 8
   },
   {
     "id": 77,
@@ -535,7 +630,58 @@ const defaultProducts = [
     "price": 540,
     "category": "その他",
     "isDiscounted": false,
-    "discountRate": 0
+    "discountRate": 0,
+    "taxRate": 10
+  },
+  {
+    "id": 78,
+    "name": "任意入力商品1",
+    "price": 0,
+    "category": "任意入力",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8,
+    "isCustomInput": true
+  },
+  {
+    "id": 79,
+    "name": "任意入力商品2",
+    "price": 0,
+    "category": "任意入力",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8,
+    "isCustomInput": true
+  },
+  {
+    "id": 80,
+    "name": "任意入力商品3",
+    "price": 0,
+    "category": "任意入力",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8,
+    "isCustomInput": true
+  },
+  {
+    "id": 81,
+    "name": "任意入力商品4",
+    "price": 0,
+    "category": "任意入力",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8,
+    "isCustomInput": true
+  },
+  {
+    "id": 82,
+    "name": "任意入力商品5",
+    "price": 0,
+    "category": "任意入力",
+    "isDiscounted": false,
+    "discountRate": 0,
+    "taxRate": 8,
+    "isCustomInput": true
   }
 ];
 // グローバル変数の宣言（初期化はDOMContentLoadedで行う）
@@ -666,15 +812,43 @@ function saveProducts() {
 function loadProducts() {
     const savedProducts = localStorage.getItem('saleToolProducts');
     const savedCategoryOrder = localStorage.getItem('saleToolCategoryOrder');
+    
+    // 商品データを先に読み込む
+    const loadedProducts = savedProducts ? JSON.parse(savedProducts) : [...defaultProducts];
+    
+    // 税率が設定されていない商品に自動的に税率を付与
+    loadedProducts.forEach(product => {
+        if (!product.taxRate) {
+            // お菓子カテゴリは10%、その他（お茶類）は8%
+            if (product.category === 'お菓子') {
+                product.taxRate = 10;
+            } else if (product.category === 'その他' && (product.name.includes('箱') || product.name.includes('アルファー'))) {
+                // 箱代やその他一部商品は10%
+                product.taxRate = 10;
+            } else {
+                // お茶類は軽減税率8%
+                product.taxRate = 8;
+            }
+        }
+    });
+    
+    // カテゴリ順序を設定
     if (savedCategoryOrder) {
         categoryOrder = JSON.parse(savedCategoryOrder);
+        
+        // 保存されたcategoryOrderに存在しないカテゴリを追加（新しい商品追加時対策）
+        const currentCategories = [...new Set(loadedProducts.map(p => p.category))];
+        currentCategories.forEach(category => {
+            if (!categoryOrder.includes(category)) {
+                categoryOrder.push(category);
+            }
+        });
     } else {
-        // カテゴリ順序が保存されていない場合、デフォルトの順序を設定
-        const loadedProducts = savedProducts ? JSON.parse(savedProducts) : [...defaultProducts];
-        const categories = [...new Set(loadedProducts.map(p => p.category))];
-        categoryOrder = categories;
+        // カテゴリ順序が保存されていない場合、全カテゴリを抽出して設定
+        categoryOrder = [...new Set(loadedProducts.map(p => p.category))];
     }
-    return savedProducts ? JSON.parse(savedProducts) : [...defaultProducts];
+    
+    return loadedProducts;
 }
 
 function getNextId(productList = []) {
@@ -805,6 +979,24 @@ function setupEventListeners() {
         console.error('- finalTotalPriceElement:', !!finalTotalPriceElement);
     }
     
+    // 納品書印刷ボタンのイベントリスナー
+    const printInvoiceBtn = document.getElementById('print-invoice-btn');
+    if (printInvoiceBtn) {
+        printInvoiceBtn.addEventListener('click', printInvoice);
+        console.log('Print invoice button listener added');
+    }
+    
+    // 発行日フィールドの初期化（今日の日付を設定）
+    const invoiceIssueDateInput = document.getElementById('invoice-issue-date');
+    if (invoiceIssueDateInput) {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        invoiceIssueDateInput.value = `${year}-${month}-${day}`;
+        console.log('Invoice issue date initialized to:', invoiceIssueDateInput.value);
+    }
+    
     console.log('Event listeners setup complete');
 }
 
@@ -876,6 +1068,13 @@ function groupByCategory(products) {
         }
     });
     
+    // categoryOrderに含まれていないカテゴリも追加（Brave対策）
+    Object.keys(groups).forEach(category => {
+        if (!sortedGroups[category]) {
+            sortedGroups[category] = groups[category];
+        }
+    });
+    
     return sortedGroups;
 }
 
@@ -917,9 +1116,70 @@ function createProductItem(product) {
     const item = document.createElement('div');
     item.className = 'product-item';
     
+    // 任意入力商品の場合は特別なUIを表示
+    if (product.isCustomInput) {
+        item.innerHTML = `
+            <div class="product-info custom-input-product">
+                <div class="custom-input-field">
+                    <label>商品名:</label>
+                    <input type="text" class="custom-product-name" data-product-id="${product.id}" placeholder="商品名を入力">
+                </div>
+                <div class="custom-input-field">
+                    <label>金額（税込）:</label>
+                    <input type="number" class="custom-product-price" data-product-id="${product.id}" placeholder="0" min="0">
+                </div>
+                <div class="custom-input-field">
+                    <label>数量:</label>
+                    <input type="number" class="custom-product-quantity" data-product-id="${product.id}" placeholder="0" min="0">
+                </div>
+                <div class="custom-input-field">
+                    <label>税率:</label>
+                    <select class="custom-product-taxrate" data-product-id="${product.id}">
+                        <option value="8">8% (軽減税率)</option>
+                        <option value="10">10% (標準税率)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-controls">
+                <button class="reset-quantity-btn" data-product-id="${product.id}">リセット</button>
+                <div class="subtotal" data-product-id="${product.id}">¥0</div>
+            </div>
+        `;
+        
+        // 入力フィールドのイベントリスナー
+        const nameInput = item.querySelector('.custom-product-name');
+        const priceInput = item.querySelector('.custom-product-price');
+        const quantityInput = item.querySelector('.custom-product-quantity');
+        const taxRateSelect = item.querySelector('.custom-product-taxrate');
+        const resetBtn = item.querySelector('.reset-quantity-btn');
+        
+        const updateCustomSubtotal = () => {
+            const price = parseInt(priceInput.value) || 0;
+            const quantity = parseInt(quantityInput.value) || 0;
+            const subtotal = price * quantity;
+            const subtotalElement = item.querySelector('.subtotal');
+            subtotalElement.textContent = `¥${subtotal.toLocaleString()}`;
+            calculateTotal();
+        };
+        
+        priceInput.addEventListener('input', updateCustomSubtotal);
+        quantityInput.addEventListener('input', updateCustomSubtotal);
+        
+        resetBtn.addEventListener('click', () => {
+            nameInput.value = '';
+            priceInput.value = '';
+            quantityInput.value = '';
+            taxRateSelect.value = '8';
+            updateCustomSubtotal();
+        });
+        
+        return item;
+    }
+    
+    // 通常の商品の場合
     // 割引率を使用した価格計算
     const discountRate = product.isDiscounted ? (product.discountRate || 20) : 0;
-    const discountedPrice = product.isDiscounted ? Math.floor(product.price * (100 - discountRate) / 100) : product.price;
+    const discountedPrice = product.isDiscounted ? Math.ceil(product.price * (100 - discountRate) / 100) : product.price;
     const priceClass = product.isDiscounted ? 'product-price discounted' : 'product-price';
     
     item.innerHTML = `
@@ -937,7 +1197,9 @@ function createProductItem(product) {
                     ${Array.from({length: 10}, (_, i) => 
                         `<option value="${i + 1}">${i + 1}</option>`
                     ).join('')}
+                    <option value="11+">11個以上</option>
                 </select>
+                <input type="number" class="quantity-input hidden" data-product-id="${product.id}" min="11" placeholder="数量を入力">
                 <button class="reset-quantity-btn" data-product-id="${product.id}">リセット</button>
             </div>
             <div class="subtotal" data-product-id="${product.id}">¥0</div>
@@ -946,8 +1208,28 @@ function createProductItem(product) {
     
     // 数量変更イベント
     const quantitySelect = item.querySelector('.quantity-select');
+    const quantityInput = item.querySelector('.quantity-input');
+    
     quantitySelect.addEventListener('change', (e) => {
-        updateSubtotal(product.id, parseInt(e.target.value), discountedPrice);
+        if (e.target.value === '11+') {
+            // 11個以上が選択されたら入力フィールドを表示
+            quantityInput.classList.remove('hidden');
+            quantityInput.focus();
+            // 小計をリセット（入力待ち）
+            updateSubtotal(product.id, 0, discountedPrice);
+        } else {
+            // 通常の選択の場合は入力フィールドを非表示
+            quantityInput.classList.add('hidden');
+            quantityInput.value = '';
+            updateSubtotal(product.id, parseInt(e.target.value), discountedPrice);
+        }
+        calculateTotal();
+    });
+    
+    // 数値入力フィールドのイベント
+    quantityInput.addEventListener('input', (e) => {
+        const quantity = parseInt(e.target.value) || 0;
+        updateSubtotal(product.id, quantity, discountedPrice);
         calculateTotal();
     });
     
@@ -955,6 +1237,8 @@ function createProductItem(product) {
     const resetBtn = item.querySelector('.reset-quantity-btn');
     resetBtn.addEventListener('click', () => {
         quantitySelect.value = '0';
+        quantityInput.classList.add('hidden');
+        quantityInput.value = '';
         updateSubtotal(product.id, 0, discountedPrice);
         calculateTotal();
     });
@@ -973,14 +1257,37 @@ function updateSubtotal(productId, quantity, price) {
 function calculateTotal() {
     let total = 0;
     
+    // 通常の商品の合計
     document.querySelectorAll('.quantity-select').forEach(select => {
         const productId = parseInt(select.dataset.productId);
-        const quantity = parseInt(select.value);
         const product = products.find(p => p.id === productId);
         
         if (product) {
             const discountRate = product.isDiscounted ? (product.discountRate || 20) : 0;
-            const price = product.isDiscounted ? Math.floor(product.price * (100 - discountRate) / 100) : product.price;
+            const price = product.isDiscounted ? Math.ceil(product.price * (100 - discountRate) / 100) : product.price;
+            
+            let quantity = 0;
+            if (select.value === '11+') {
+                // 11個以上が選択されている場合は入力フィールドの値を使用
+                const quantityInput = document.querySelector(`.quantity-input[data-product-id="${productId}"]`);
+                quantity = quantityInput ? (parseInt(quantityInput.value) || 0) : 0;
+            } else {
+                // 通常の選択の場合
+                quantity = parseInt(select.value) || 0;
+            }
+            
+            total += price * quantity;
+        }
+    });
+    
+    // 任意入力商品の合計
+    document.querySelectorAll('.custom-product-price').forEach(priceInput => {
+        const productId = parseInt(priceInput.dataset.productId);
+        const quantityInput = document.querySelector(`.custom-product-quantity[data-product-id="${productId}"]`);
+        
+        if (quantityInput) {
+            const price = parseInt(priceInput.value) || 0;
+            const quantity = parseInt(quantityInput.value) || 0;
             total += price * quantity;
         }
     });
@@ -1110,12 +1417,13 @@ function createEditProductItem(product) {
     item.className = 'edit-product-item';
     
     const discountInfo = product.isDiscounted ? `割引対象(${product.discountRate || 20}%)` : '通常価格';
+    const taxInfo = `税${product.taxRate || 8}%`;
     
     item.innerHTML = `
         <div class="edit-product-info">
             <div class="edit-product-name">${product.name}</div>
             <div class="edit-product-details">
-                ¥${product.price.toLocaleString()} | ${product.category} | ${discountInfo}
+                ¥${product.price.toLocaleString()} | ${product.category} | ${discountInfo} | ${taxInfo}
             </div>
         </div>
         <div class="edit-product-actions">
@@ -1148,7 +1456,8 @@ function handleFormSubmit(e) {
         price: parseInt(formData.get('price')),
         category: finalCategory.trim(),
         isDiscounted: formData.get('isDiscounted') === 'on',
-        discountRate: formData.get('isDiscounted') === 'on' ? parseInt(formData.get('discountRate')) : 0
+        discountRate: formData.get('isDiscounted') === 'on' ? parseInt(formData.get('discountRate')) : 0,
+        taxRate: parseInt(formData.get('taxRate')) || 8
     };
     
     if (currentEditingId) {
@@ -1213,6 +1522,9 @@ function editProduct(id) {
         } else {
             discountRateGroup.style.display = 'none';
         }
+        
+        // 税率の設定
+        document.getElementById('tax-rate').value = product.taxRate || 8;
         
         // UI更新
         formTitle.textContent = '商品編集';
@@ -1545,4 +1857,268 @@ function handleDragEnd(e) {
     document.querySelectorAll('.category-order-item').forEach(item => {
         item.classList.remove('drag-over');
     });
+}
+
+// =====================================================
+// 納品書印刷機能
+// =====================================================
+
+// 納品書印刷関数
+function printInvoice() {
+    // 画面から選択された商品と数量を取得
+    const purchasedItems = [];
+    
+    // 通常の商品を取得
+    document.querySelectorAll('.quantity-select').forEach(select => {
+        const productId = parseInt(select.dataset.productId);
+        const product = products.find(p => p.id === productId);
+        
+        if (product) {
+            let quantity = 0;
+            if (select.value === '11+') {
+                // 11個以上が選択されている場合は入力フィールドの値を使用
+                const quantityInput = document.querySelector(`.quantity-input[data-product-id="${productId}"]`);
+                quantity = quantityInput ? (parseInt(quantityInput.value) || 0) : 0;
+            } else {
+                // 通常の選択の場合
+                quantity = parseInt(select.value) || 0;
+            }
+            
+            if (quantity > 0) {
+                purchasedItems.push({
+                    ...product,
+                    quantity: quantity
+                });
+            }
+        }
+    });
+    
+    // 任意入力商品を取得
+    document.querySelectorAll('.custom-product-name').forEach(nameInput => {
+        const productId = parseInt(nameInput.dataset.productId);
+        const priceInput = document.querySelector(`.custom-product-price[data-product-id="${productId}"]`);
+        const quantityInput = document.querySelector(`.custom-product-quantity[data-product-id="${productId}"]`);
+        const taxRateSelect = document.querySelector(`.custom-product-taxrate[data-product-id="${productId}"]`);
+        
+        const name = nameInput.value.trim();
+        const price = parseInt(priceInput.value) || 0;
+        const quantity = parseInt(quantityInput.value) || 0;
+        const taxRate = taxRateSelect ? parseInt(taxRateSelect.value) : 8;
+        
+        if (name && price > 0 && quantity > 0) {
+            const product = products.find(p => p.id === productId);
+            purchasedItems.push({
+                id: productId,
+                name: name,
+                price: price,
+                quantity: quantity,
+                category: product ? product.category : '任意入力',
+                isDiscounted: false,
+                discountRate: 0,
+                taxRate: taxRate,
+                isCustomInput: true
+            });
+        }
+    });
+    
+    if (purchasedItems.length === 0) {
+        alert('商品が選択されていません。数量を1以上に設定してください。');
+        return;
+    }
+    
+    // 発行日を取得（日付入力フィールドから）
+    const invoiceIssueDateInput = document.getElementById('invoice-issue-date');
+    let dateString;
+    
+    if (invoiceIssueDateInput && invoiceIssueDateInput.value) {
+        // 入力された日付を使用
+        const dateValue = new Date(invoiceIssueDateInput.value);
+        dateString = `${dateValue.getFullYear()}年${dateValue.getMonth() + 1}月${dateValue.getDate()}日`;
+    } else {
+        // デフォルトは今日の日付
+        const today = new Date();
+        dateString = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日`;
+    }
+    
+    // 商品価格は税込み価格なので、内税として計算
+    let subtotalExcludingTax = 0;  // 税抜き小計
+    let tax8Total = 0;   // 8%対象商品の消費税合計
+    let tax10Total = 0;  // 10%対象商品の消費税合計
+    let totalIncludingTax = 0;  // 税込み合計
+    
+    purchasedItems.forEach(product => {
+        // 税込み価格（割引適用後）
+        const priceIncludingTax = product.isDiscounted 
+            ? Math.ceil(product.price * (1 - product.discountRate / 100))
+            : product.price;
+        const itemTotalIncludingTax = priceIncludingTax * product.quantity;
+        
+        // 税率に応じて税抜き価格を計算
+        let priceExcludingTax;
+        let itemTax;
+        
+        if (product.taxRate === 8) {
+            // 8%内税の場合
+            priceExcludingTax = Math.floor(priceIncludingTax / 1.08);
+            const itemTotalExcludingTax = priceExcludingTax * product.quantity;
+            itemTax = itemTotalIncludingTax - itemTotalExcludingTax;
+            tax8Total += itemTax;
+            subtotalExcludingTax += itemTotalExcludingTax;
+        } else {
+            // 10%内税の場合
+            priceExcludingTax = Math.floor(priceIncludingTax / 1.10);
+            const itemTotalExcludingTax = priceExcludingTax * product.quantity;
+            itemTax = itemTotalIncludingTax - itemTotalExcludingTax;
+            tax10Total += itemTax;
+            subtotalExcludingTax += itemTotalExcludingTax;
+        }
+        
+        totalIncludingTax += itemTotalIncludingTax;
+    });
+    
+    // 各値を整数化
+    const subtotal = Math.ceil(subtotalExcludingTax);
+    const tax8 = Math.ceil(tax8Total);
+    const tax10 = Math.ceil(tax10Total);
+    
+    // 配送オプションを取得
+    const shippingFee = parseInt(shippingFeeSelect.value) || 0;
+    const coolDelivery = parseInt(coolDeliverySelect.value) || 0;
+    const isCOD = cashOnDeliverySelect.value === '1';
+    // 代引き手数料は税込み合計を基準に計算
+    const codFee = isCOD ? calculateCODFee(totalIncludingTax) : 0;
+    
+    // 総合計を計算（商品合計[税込] + 送料等）
+    const total = totalIncludingTax + shippingFee + coolDelivery + codFee;
+    
+    // お客様情報を取得
+    const customerNumber = document.getElementById('customer-number')?.value || '';
+    const customerName = document.getElementById('customer-name')?.value || '';
+    const customerRemarks = document.getElementById('customer-remarks')?.value || '';
+    
+    // 納品書テンプレートに情報を設定（2箇所とも同じ内容）
+    for (let i = 1; i <= 2; i++) {
+        // 日付の設定
+        document.getElementById(`invoice-date-${i}`).textContent = dateString;
+        
+        // お客様情報の設定
+        document.getElementById(`invoice-customer-number-${i}`).textContent = customerNumber;
+        document.getElementById(`invoice-customer-name-${i}`).textContent = customerName;
+        document.getElementById(`invoice-customer-remarks-${i}`).textContent = customerRemarks;
+        
+        // 商品リストの設定
+        const itemsBody = document.getElementById(`invoice-items-${i}`);
+        itemsBody.innerHTML = '';
+        purchasedItems.forEach(product => {
+            const price = product.isDiscounted 
+                ? Math.ceil(product.price * (1 - product.discountRate / 100))
+                : product.price;
+            const itemTotal = price * product.quantity;
+            
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="col-name">${product.name}</td>
+                <td class="col-price">¥${Math.ceil(price).toLocaleString()}</td>
+                <td class="col-qty">${product.quantity}</td>
+                <td class="col-total">¥${Math.ceil(itemTotal).toLocaleString()}</td>
+            `;
+            itemsBody.appendChild(row);
+        });
+        
+        // 合計金額の設定
+        document.getElementById(`invoice-subtotal-${i}`).textContent = `¥${subtotal.toLocaleString()}`;
+        document.getElementById(`invoice-tax8-${i}`).textContent = `¥${tax8.toLocaleString()}`;
+        document.getElementById(`invoice-tax10-${i}`).textContent = `¥${tax10.toLocaleString()}`;
+        document.getElementById(`invoice-shipping-${i}`).textContent = shippingFee > 0 ? `¥${shippingFee.toLocaleString()}` : '無料';
+        
+        // 代引き手数料の表示
+        const codRow = document.getElementById(`invoice-cod-row-${i}`);
+        if (isCOD) {
+            codRow.style.display = 'flex';
+            document.getElementById(`invoice-cod-${i}`).textContent = `¥${codFee.toLocaleString()}`;
+        } else {
+            codRow.style.display = 'none';
+        }
+        
+        // クール便の表示
+        const coolRow = document.getElementById(`invoice-cool-row-${i}`);
+        if (coolDelivery > 0) {
+            coolRow.style.display = 'flex';
+            document.getElementById(`invoice-cool-${i}`).textContent = `¥${coolDelivery.toLocaleString()}`;
+        } else {
+            coolRow.style.display = 'none';
+        }
+        
+        document.getElementById(`invoice-total-${i}`).textContent = `¥${total.toLocaleString()}`;
+    }
+    
+    // 納品書テンプレートを取得
+    const invoiceTemplate = document.getElementById('invoice-template');
+    
+    // デバッグ：印刷前の状態を確認
+    console.log('=== 納品書印刷デバッグ ===');
+    console.log('Invoice template element:', invoiceTemplate);
+    console.log('Has hidden class before:', invoiceTemplate.classList.contains('hidden'));
+    console.log('Invoice items count:', purchasedItems.length);
+    console.log('Invoice date:', dateString);
+    console.log('Subtotal:', subtotal, 'Tax8:', tax8, 'Tax10:', tax10);
+    console.log('Total:', total);
+    
+    // 納品書の内容を確認
+    const items1 = document.getElementById('invoice-items-1');
+    console.log('Invoice items 1 children:', items1.children.length);
+    console.log('Invoice items 1 HTML:', items1.innerHTML.substring(0, 200));
+    
+    // 元の親要素を記憶
+    const originalParent = invoiceTemplate.parentNode;
+    const originalNextSibling = invoiceTemplate.nextSibling;
+    
+    // hiddenクラスを削除
+    invoiceTemplate.classList.remove('hidden');
+    invoiceTemplate.style.display = 'block';
+    invoiceTemplate.style.visibility = 'visible';
+    
+    // bodyの直下に移動（印刷時に確実に表示されるようにする）
+    document.body.appendChild(invoiceTemplate);
+    
+    console.log('Has hidden class after:', invoiceTemplate.classList.contains('hidden'));
+    console.log('Display style:', invoiceTemplate.style.display);
+    console.log('Classes:', invoiceTemplate.className);
+    console.log('Parent element:', invoiceTemplate.parentNode.tagName);
+    
+    // DOMが更新されるのを待ってから印刷
+    setTimeout(() => {
+        console.log('About to print...');
+        window.print();
+        
+        // 印刷後に元の位置に戻す
+        setTimeout(() => {
+            // 元の位置に戻す
+            if (originalNextSibling) {
+                originalParent.insertBefore(invoiceTemplate, originalNextSibling);
+            } else {
+                originalParent.appendChild(invoiceTemplate);
+            }
+            
+            invoiceTemplate.classList.add('hidden');
+            invoiceTemplate.style.display = '';
+            invoiceTemplate.style.visibility = '';
+            console.log('Reset to hidden and moved back');
+        }, 500);
+    }, 100);
+}
+
+// 代引き手数料を計算する関数
+function calculateCODFee(amount) {
+    if (amount < 10000) {
+        return 330;
+    } else if (amount < 30000) {
+        return 440;
+    } else if (amount < 100000) {
+        return 660;
+    } else if (amount < 300000) {
+        return 1100;
+    } else {
+        return 1650;
+    }
 }

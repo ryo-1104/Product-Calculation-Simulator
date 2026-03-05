@@ -161,6 +161,7 @@ main {
     display: flex;
     align-items: center;
     gap: 0.4rem;
+    flex-wrap: wrap;
 }
 
 .quantity-select {
@@ -180,6 +181,28 @@ main {
     outline: none;
     border-color: #2980b9;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.quantity-input {
+    padding: 0.6rem;
+    border: 2px solid #e74c3c;
+    border-radius: 5px;
+    background: white;
+    font-size: 15px;
+    font-weight: bold;
+    color: #2c3e50;
+    min-width: 80px;
+    text-align: center;
+}
+
+.quantity-input:focus {
+    outline: none;
+    border-color: #c0392b;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+}
+
+.quantity-input.hidden {
+    display: none;
 }
 
 .reset-quantity-btn {
@@ -227,6 +250,117 @@ main {
 #total-price {
     color: #e74c3c;
     font-size: 2rem;
+}
+
+/* お客様情報エリア */
+.customer-info {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.customer-info h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.customer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.customer-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.customer-group label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 0.9rem;
+}
+
+.customer-input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: white;
+}
+
+.customer-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.customer-textarea {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: white;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.customer-textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* 発行日設定エリア */
+.invoice-date-setting {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.invoice-date-setting h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.date-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.date-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.date-group label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 0.9rem;
+}
+
+.date-input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: white;
+    font-family: inherit;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
 /* 配送オプションエリア */
@@ -1072,4 +1206,487 @@ main {
 .close-help-btn:hover {
     background: #c0392b;
     transform: scale(1.05);
+}
+
+/* =====================================================
+   納品書印刷機能のスタイル
+   ===================================================== */
+
+/* 印刷ボタンコンテナ */
+.print-button-container {
+    margin-top: 1rem;
+}
+
+/* 印刷ボタン */
+.print-invoice-btn {
+    width: 100%;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.print-invoice-btn:hover {
+    background-color: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.print-invoice-btn:active {
+    transform: translateY(0);
+}
+
+/* 納品書テンプレート（通常は非表示） */
+.invoice-template {
+    display: none;
+}
+
+/* 印刷時のスタイル */
+@media print {
+    /* ページ設定 */
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+    
+    /* 基本設定 */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    html {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        width: 100% !important;
+    }
+    
+    /* 通常のコンテンツを非表示 */
+    body > header,
+    body > main,
+    #display-mode,
+    #edit-mode,
+    .display-mode,
+    .edit-mode,
+    .mode-content,
+    .display-layout,
+    .product-list,
+    .sidebar {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    
+    /* 納品書テンプレート以外をすべて非表示 */
+    body > *:not(#invoice-template) {
+        display: none !important;
+    }
+    
+    /* 納品書テンプレートを確実に表示 */
+    #invoice-template,
+    .invoice-template {
+        display: block !important;
+        visibility: visible !important;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+        background: white !important;
+    }
+    
+    #invoice-template.hidden,
+    .invoice-template.hidden {
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    /* 納品書内の要素をすべて表示 */
+    #invoice-template *,
+    .invoice-template * {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* 納品書ページ */
+    .invoice-page {
+        display: block !important;
+        width: 100% !important;
+        background: white !important;
+        color: black !important;
+    }
+    
+    /* 納品書セクション */
+    .invoice-section {
+        display: block !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 8mm !important;
+        padding: 3mm !important;
+        border: 1px solid #333 !important;
+        background: white !important;
+        color: black !important;
+    }
+    
+    .invoice-section:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    /* 会社情報（左下にコンパクト配置） */
+    .invoice-company-info {
+        display: block !important;
+        margin-top: 3mm !important;
+        padding-top: 2mm !important;
+        border-top: 1px solid #ddd !important;
+    }
+    
+    .company-name {
+        display: block !important;
+        font-size: 13px !important;
+        font-weight: bold !important;
+        color: #2c3e50 !important;
+        margin-bottom: 1mm !important;
+    }
+    
+    .company-details {
+        display: block !important;
+        font-size: 9px !important;
+        color: #555 !important;
+        line-height: 1.3 !important;
+    }
+    
+    .company-details div {
+        display: block !important;
+        color: #555 !important;
+    }
+    
+    /* 納品書下部セクション（会社情報と合計を横並び） */
+    .invoice-bottom-section {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        margin-top: 3mm !important;
+        gap: 5mm !important;
+    }
+    
+    /* 左側の情報エリア（お客様情報のみ） */
+    .invoice-left-info {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3mm !important;
+        flex: 0 0 auto !important;
+    }
+    
+    /* 会社情報（左側） - 使用しない */
+    .invoice-company-info-left {
+        display: none !important;
+    }
+    
+    /* お客様情報（納品書内） */
+    .invoice-customer-info {
+        display: block !important;
+        padding: 5mm !important;
+        border: 1px solid #000 !important;
+        background-color: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        min-width: 70mm !important;
+    }
+    
+    .customer-info-row {
+        display: flex !important;
+        align-items: flex-start !important;
+        margin-bottom: 3mm !important;
+        font-size: 18px !important;
+        line-height: 1.8 !important;
+    }
+    
+    .customer-info-row:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    .customer-label {
+        display: inline-block !important;
+        font-weight: bold !important;
+        color: #000 !important;
+        min-width: 35mm !important;
+        flex-shrink: 0 !important;
+        font-size: 18px !important;
+    }
+    
+    .customer-value {
+        display: inline-block !important;
+        color: #000 !important;
+        font-weight: 600 !important;
+        word-wrap: break-word !important;
+        flex: 1 !important;
+        font-size: 18px !important;
+    }
+    
+    /* 会社情報（上部・非表示） */
+    .invoice-company-info-top {
+        display: none !important;
+    }
+    
+    /* 納品書ヘッダー */
+    .invoice-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 5mm !important;
+        padding-bottom: 2mm !important;
+        border-bottom: 2px solid #000 !important;
+    }
+    
+    .invoice-header h2 {
+        display: block !important;
+        font-size: 24px !important;
+        margin: 0 !important;
+        font-weight: bold !important;
+        color: black !important;
+        flex: 0 0 auto !important;
+    }
+    
+    /* 会社情報（ヘッダー内） */
+    .invoice-company-info-header {
+        display: block !important;
+        text-align: center !important;
+        flex: 1 !important;
+        padding: 0 5mm !important;
+    }
+    
+    .company-row {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8mm !important;
+        margin-bottom: 0.5mm !important;
+    }
+    
+    .company-row:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    .company-name-full {
+        font-size: 11px !important;
+        font-weight: bold !important;
+        color: #000 !important;
+        white-space: nowrap !important;
+    }
+    
+    .company-address {
+        font-size: 9px !important;
+        color: #000 !important;
+        white-space: nowrap !important;
+    }
+    
+    .company-phone {
+        font-size: 9px !important;
+        color: #000 !important;
+        white-space: nowrap !important;
+    }
+    
+    .invoice-date {
+        display: block !important;
+        font-size: 14px !important;
+        color: black !important;
+        flex: 0 0 auto !important;
+    }
+    
+    .invoice-date span {
+        display: inline !important;
+        color: black !important;
+    }
+    
+    .invoice-content {
+        display: block !important;
+    }
+    
+    /* 納品書テーブル */
+    .invoice-table {
+        display: table !important;
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 3mm;
+        color: black !important;
+    }
+    
+    .invoice-table thead {
+        display: table-header-group !important;
+    }
+    
+    .invoice-table tbody {
+        display: table-row-group !important;
+    }
+    
+    .invoice-table tr {
+        display: table-row !important;
+    }
+    
+    .invoice-table th,
+    .invoice-table td {
+        display: table-cell !important;
+        border: 1px solid #333;
+        padding: 1mm 2mm;
+        text-align: left;
+        color: black !important;
+        background: white !important;
+    }
+    
+    .invoice-table th {
+        background-color: #f0f0f0 !important;
+        font-weight: bold;
+        font-size: 12px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .invoice-table td {
+        font-size: 11px;
+    }
+    
+    .invoice-table .col-name {
+        width: 45%;
+        font-weight: 700;
+        font-size: 13px;
+    }
+    
+    .invoice-table .col-price {
+        width: 15%;
+        text-align: right;
+    }
+    
+    .invoice-table .col-qty {
+        width: 15%;
+        text-align: right;
+        font-weight: 700;
+        font-size: 13px;
+    }
+    
+    .invoice-table .col-total {
+        width: 25%;
+        text-align: right;
+    }
+    
+    /* 納品書サマリー */
+    .invoice-summary {
+        display: block !important;
+        flex: 0 0 auto !important;
+        width: 50%;
+        border: 1px solid #333;
+        padding: 2mm;
+        background: white !important;
+    }
+    
+    .summary-row {
+        display: flex !important;
+        justify-content: space-between;
+        padding: 1mm 0;
+        font-size: 12px;
+        color: black !important;
+        line-height: 1.3;
+    }
+    
+    .summary-row.total-row {
+        border-top: 2px solid #333;
+        margin-top: 1.5mm;
+        padding-top: 2mm;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    
+    .summary-label,
+    .summary-value {
+        display: inline-block !important;
+        color: black !important;
+    }
+    
+    .summary-label {
+        font-weight: 500;
+    }
+    
+    .summary-value {
+        font-weight: 600;
+        text-align: right;
+        min-width: 80px;
+    }
+    
+    /* 納品書の区切り線 */
+    .invoice-divider {
+        display: block !important;
+        height: 5mm;
+        border-bottom: 2px dashed #999;
+        margin: 5mm 0;
+    }
+}
+
+/* 画面表示時の納品書テンプレート（プレビュー用） */
+.invoice-template.preview {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.invoice-template.preview .invoice-page {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: white;
+    padding: 10mm;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* 任意入力商品のスタイル */
+.custom-input-product {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.custom-input-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.custom-input-field label {
+    font-weight: 600;
+    min-width: 100px;
+    color: #2c3e50;
+}
+
+.custom-input-field input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.custom-input-field input:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.custom-input-field input::placeholder {
+    color: #95a5a6;
 }
